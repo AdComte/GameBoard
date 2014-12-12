@@ -7,6 +7,7 @@ import java.util.List;
  *
  * @author YOU
  */
+
 public class GameBoard {
     public final int width;
     public final int length;
