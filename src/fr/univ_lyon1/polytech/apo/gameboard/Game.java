@@ -21,7 +21,7 @@ public class Game {
         Position emplacement;
         emplacement = new Position(0,0);
                 System.out.println(" position initialisee \n");
-        emplacement.parse("[2,2]");
+        emplacement.parse("2,2");
                 System.out.println(" parse ok \n");
         tour = new Turn(emplacement,player_1);
                 System.out.println(" tour ok\n");

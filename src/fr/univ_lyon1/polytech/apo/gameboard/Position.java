@@ -12,77 +12,25 @@ public class Position {
         this.x = x;
         this.y = y;
     }
-    public void parse(String string)//la chaine doit être de la forme "[i,j]"
+    
+    public void parse(String seizure)//la chaine doit être de la forme "i,j"
     {
-        x=0;
-        y=0;
-        int i=1;
-        int j=0;
-        int taille_abs=0;
-        int taille_ord=0;
+        String[] clean = seizure.split(",");
         
-        while(string.charAt(i)!=',')//récupération de la taille du nombre en abscisse
+        int j = 0;
+        for (int n = clean[0].length();  n > 0; n --)
         {
-            taille_abs++;
-            i++;
-        }
-        System.out.println("i"+i);
-        int[] abs = new int[taille_abs];
-        
-        System.out.println("taille_abs"+taille_abs);
-        i=1;
-        while(string.charAt(i)!=',')//récupération des caractères abscisse
-        {
-          abs[j]=string.charAt(i)-'0';
-          j++;
-          i++;
-        }
-        
-        //reconstruction de l'abscisse;
-        i=abs.length;
-                System.out.println("i"+i);
-        j=0;
-        
-        while(i!=0 && j<abs.length)
-        {
-            x= x + (abs[j]*(10^(i-1)));
-            i--;
+            x = x + (clean[0].charAt(j) - '0') * (int) Math.pow(10,(n-1));
             j++;
         }
-                 System.out.println("x vaut actuellement " + x +"\n");
         
-        //récupération de l'ordonnée
-        i=1+abs.length;
-        j=0;
-        while(string.charAt(i)!=']')
+        j = 0;
+        for (int n = clean[1].length();  n > 0; n --)
         {
-            taille_ord++;
-            i++;
-        }
-        int[] ord = new int[taille_ord];
-        System.out.println("taille_ord"+taille_ord);
-        i=1;
-        while(string.charAt(i)!=']')
-        {
-            ord[j]=string.charAt(i);
+            y = y + (clean[1].charAt(j) - '0')* (int) Math.pow(10,(n-1));
             j++;
-            i++;
         }
-        //reconstruction de l'ordonnée
-        i=taille_ord;
-        j=0;
-        while(i!=0)
-        {
-                        System.out.println("valeur de i "+i);
-            y = y + (ord[j]*(10^(i-1)));
-            i--;
-            j++;
-
-        }
-        System.out.println("parse ok");
     }
-    
-    
 
     @Override
     public String toString() {
