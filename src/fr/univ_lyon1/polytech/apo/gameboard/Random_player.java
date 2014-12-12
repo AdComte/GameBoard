@@ -6,6 +6,8 @@
 
 package fr.univ_lyon1.polytech.apo.gameboard;
 
+import java.util.Random;
+
 /**
  *
  * @author p1206512
@@ -19,11 +21,11 @@ public class Random_player extends Player {
     public Turn play()
     {
         Turn tour;
-        Random abs = new Random();
-        Random ord = new Random();
+        Random abs = new Random(10);
+        Random ord = new Random(10);
         Position position;
         
-        position = new Position(abs,ord);
+        position = new Position(abs.nextInt(),ord.nextInt());
         tour = new Turn(position,this);
         return tour;
     }
