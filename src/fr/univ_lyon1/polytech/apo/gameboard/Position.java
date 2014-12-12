@@ -14,6 +14,8 @@ public class Position {
     }
     public void parse(String string)//la chaine doit être de la forme "[i,j]"
     {
+        x=0;
+        y=0;
         int i=1;
         int j=0;
         int taille_abs=0;
@@ -24,7 +26,7 @@ public class Position {
             taille_abs++;
             i++;
         }
-        
+        System.out.println("i"+i);
         int[] abs = new int[taille_abs];
         
         System.out.println("taille_abs"+taille_abs);
@@ -38,10 +40,12 @@ public class Position {
         
         //reconstruction de l'abscisse;
         i=abs.length;
+                System.out.println("i"+i);
         j=0;
-        while(i!=0)
+        
+        while(i!=0 && j<abs.length)
         {
-            x= x + abs[j]*10^(i-1);
+            x= x + (abs[j]*(10^(i-1)));
             i--;
             j++;
         }
@@ -65,17 +69,21 @@ public class Position {
             i++;
         }
         //reconstruction de l'ordonnée
-        i=ord.length;
+        i=taille_ord;
         j=0;
         while(i!=0)
         {
-            y = y + ord[j]*10^(i-1);
+                        System.out.println("valeur de i "+i);
+            y = y + (ord[j]*(10^(i-1)));
             i--;
             j++;
+
         }
         System.out.println("parse ok");
     }
     
+    
+
     @Override
     public String toString() {
         return "TODO";
